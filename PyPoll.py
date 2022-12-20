@@ -25,16 +25,8 @@ file_to_save=os.path.join("analysis", "election_analysis.txt")
 
 # Using the with statement open the file as a text file
 
-open(file_to_save, "w")
+with open(file_to_save, "w") as txt_file:
 
-#Use the open statement to open the file as a text file.
+    # Write some data to the file
 
-outfile=open(file_to_save, "w")
-
-# Write some data to the file
-
-outfile.write("Hello World")
-
-# Close the file
-
-outfile.close()
+    txt_file.write("Hello World")
