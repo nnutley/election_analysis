@@ -18,8 +18,8 @@ candidate_options = []
 candidate_votes = {}
 
 # 1: Create a county list and county votes dictionary.
-
-
+counties_list=[]
+counties_votes={}
 
 # Track the winning candidate, vote count and percentage
 winning_candidate = ""
@@ -27,8 +27,8 @@ winning_count = 0
 winning_percentage = 0
 
 # 2: Track the largest county and county voter turnout.
-
-
+winning_county=""
+winning_county_count=0
 
 # Read the csv and convert it into a list of dictionaries
 with open(file_to_load) as election_data:
@@ -47,7 +47,7 @@ with open(file_to_load) as election_data:
         candidate_name = row[2]
 
         # 3: Extract the county name from each row.
-
+        county_name=row[1]
 
         # If the candidate does not match any existing candidate add it to
         # the candidate list
@@ -64,16 +64,16 @@ with open(file_to_load) as election_data:
 
         # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
-
+        if county_name not in counties_list:
 
             # 4b: Add the existing county to the list of counties.
-
+            counties_list.append(county_name)
 
             # 4c: Begin tracking the county's vote count.
-
+            counties_votes[county_name]=0
 
         # 5: Add a vote to that county's vote count.
-
+        counties_votes[county_name]+=1
 
 
 # Save the results to our text file.
